@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Iman Parvizi — Software Engineer | Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ ENGINEERING RESUME — CLEAN CLASSIC TEMPLATE ============ */
+  :root{
+    --ink:#111827;
+    --body:#374151;
+    --muted:#6b7280;
+    --accent:#1d4ed8;
+    --accent-soft:#eef2ff;
+    --line:#e5e7eb;
+    --bg:#f3f4f6;
+    --paper:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{
+    font-family:'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--body);
+    font-size:10.5pt;
+    line-height:1.55;
+    padding:24px 12px;
+  }
+  .page{
+    max-width:210mm;
+    margin:0 auto;
+    background:var(--paper);
+    box-shadow:0 2px 24px rgba(20,30,60,.10);
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    padding:34px 40px 26px;
+    border-bottom:3px solid var(--accent);
+  }
+  .photo{
+    width:104px;height:104px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--accent-soft);
+    box-shadow:0 0 0 1px var(--line);
+    flex-shrink:0;
+  }
+  .header-main{flex:1;min-width:0}
+  .name{
+    font-size:23pt;
+    font-weight:800;
+    letter-spacing:-.02em;
+    color:var(--ink);
+    text-transform:uppercase;
+    line-height:1.12;
+  }
+  .role{
+    font-size:11.5pt;
+    font-weight:700;
+    color:var(--accent);
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    margin-top:2px;
+  }
+  .contact{
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px 18px;
+    margin-top:12px;
+    font-size:8.6pt;
+    color:var(--muted);
+  }
+  .contact a{color:var(--body);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+  .contact a:hover{color:var(--accent)}
+  .contact a .ic{width:11px;height:11px;flex-shrink:0;color:var(--accent)}
+  .contact a:hover .ic{color:var(--ink)}
+  .contact .dot{color:var(--line)}
+
+  /* ---------- Layout ---------- */
+  .content{padding:26px 40px 36px}
+  .section{margin-bottom:22px}
+  .section:last-child{margin-bottom:0}
+  .section-title{
+    font-size:10pt;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+  }
+  .section-title::after{content:"";flex:1;height:1px;background:var(--line)}
+  .section-title .no{
+    color:var(--accent);
+    font-size:8.5pt;
+    font-weight:700;
+    letter-spacing:.05em;
+  }
+
+  /* ---------- Summary ---------- */
+  .summary{font-size:10.2pt;color:var(--body);text-align:justify}
+
+  /* ---------- Experience ---------- */
+  .job{margin-bottom:18px}
+  .job:last-child{margin-bottom:0}
+  .job-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .company{font-size:11.5pt;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .job-title{font-size:9.8pt;font-weight:700;color:var(--accent);margin-top:2px}
+  .job-meta{
+    font-size:8.4pt;
+    color:var(--ink);
+    white-space:nowrap;
+    font-weight:800;
+    text-align:right;
+    line-height:1.5;
+  }
+  .job-meta .loc{font-weight:600;color:var(--muted)}
+  .job ul{margin:8px 0 0 0;padding-left:16px;list-style:none}
+  .job li{
+    position:relative;
+    padding-left:2px;
+    margin-bottom:4px;
+    font-size:9.6pt;
+  }
+  .job li::before{
+    content:"▸";
+    position:absolute;left:-14px;
+    color:var(--accent);
+    font-size:9pt;
+  }
+  .job li b{color:var(--ink);font-weight:700}
+
+  /* ---------- Skills ---------- */
+  .skills{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+  .skill-label{
+    font-size:8.4pt;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--ink);
+    margin-bottom:5px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:5px}
+  .chip{
+    font-size:8.6pt;
+    font-weight:600;
+    color:var(--body);
+    background:#f6f8fb;
+    border:1px solid var(--line);
+    padding:2.5px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+
+  /* ---------- Education / Languages ---------- */
+  .edu{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .edu-school{font-size:11pt;font-weight:800;color:var(--ink)}
+  .edu-degree{font-size:9.6pt;color:var(--accent);font-weight:700;margin-top:1px}
+  .edu-meta{
+    font-size:8.4pt;
+    color:var(--ink);
+    white-space:nowrap;
+    text-align:right;
+    font-weight:800;
+    line-height:1.5;
+  }
+  .edu-meta .loc{font-weight:600;color:var(--muted)}
+  .langs{display:flex;flex-wrap:wrap;gap:10px}
+  .lang{
+    font-size:9.2pt;font-weight:700;color:var(--ink);
+    background:var(--accent-soft);
+    border:1px solid var(--line);
+    padding:4px 14px;border-radius:999px;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer{
+    border-top:2px solid var(--ink);
+    background:var(--accent-soft);
+    padding:14px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:8.6pt;
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:.02em;
+  }
+  .footer .f-right{color:var(--accent);font-weight:700}
+
+  /* ---------- Print ---------- */
+  @page{size:A4;margin:0}
+  @media print{
+    body{background:#fff;padding:0}
+    .page{box-shadow:none;max-width:none}
+    .no-print{display:none !important}
+    .job,.edu,.skill-group{break-inside:avoid;page-break-inside:avoid}
+    .section-title{break-after:avoid;page-break-after:avoid}
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width:640px){
+    .header{flex-direction:column;text-align:center;padding:28px 20px 22px}
+    .contact{justify-content:center}
+    .content{padding:22px 20px 28px}
+    .job-head,.edu{flex-direction:column;gap:2px}
+    .job-meta,.edu-meta{text-align:left;white-space:normal}
+    .skills{grid-template-columns:1fr}
+    .footer{flex-direction:column;gap:4px;padding:12px 20px;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <img class="photo" src="uploads/me-profile.jpg" alt="Iman Parvizi" />
+    <div class="header-main">
+      <h1 class="name">Iman Parvizi</h1>
+      <div class="role">Software Engineer</div>
+      <div class="contact">
+        <a href="mailto:hellopvz@gmail.com">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          hellopvz@gmail.com
+        </a><span class="dot">|</span>
+        <a href="tel:+989372509536">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +98 937 250 9536
+        </a><span class="dot">|</span>
+        <a href="https://linkedin.com/in/realpvz">
+          <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          linkedin.com/in/realpvz
+        </a><span class="dot">|</span>
+        <a href="https://github.com/realpvz">
+          <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.49 5.92.43.38.82 1.11.82 2.24v3.32c0 .32.21.7.83.58A12 12 0 0 0 12 .3z"/></svg>
+          github.com/realpvz
+        </a><span class="dot">|</span>
+        <a href="https://realpvz.github.io/realpvz">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          realpvz.github.io
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- ================= SUMMARY ================= -->
+    <section class="section">
+      <h2 class="section-title"><span class="no">01</span> Summary</h2>
+      <p class="summary">
+        Software Engineer specializing in multi-tenant travel platforms. Built and architected Laravel-based
+        systems for flight aggregation (<b>25+ suppliers</b>), resilient multi-provider payment gateways, dynamic
+        pricing, and automated infrastructure provisioning. Experienced in AWS, OpenTofu, observability, and
+        modernizing legacy systems with a strong focus on reliability, scalability, and data integrity.
+      </p>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section">
+      <h2 class="section-title"><span class="no">02</span> Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <div class="company">LuxOTA Travel Tech</div>
+            <div class="job-title">Software Engineer</div>
+          </div>
+          <div class="job-meta">2026 Feb – Present<br><span class="loc">Dubai, United Arab Emirates</span></div>
+        </div>
+        <ul>
+          <li>Designed and adopted an AI-native engineering workflow across frontend, backend, and infrastructure using Codex and Claude Code — building a structured system of rules, architectural context, reusable skills, and verification workflows that enabled AI agents to work effectively within a complex production codebase, while maintaining human oversight and engineering standards.</li>
+          <li>Built Trustee, a double-entry accounting system in Laravel that tracks per-passenger fees charged to travel agencies and calculates associated tax liabilities, with a focus on data integrity, consistency, auditability, and financial correctness.</li>
+          <li>Designed and maintained AWS infrastructure using OpenTofu/Terraform — provisioning ECS Fargate, Aurora, and S3 with per-environment state isolation and versioned infrastructure modules; owned the end-to-end deployment pipeline with secure secrets management, deployment safety gates, high availability, and centralized CloudWatch logging.</li>
+          <li>Built an automated node-provisioning API for a multi-tenant Laravel platform, orchestrating 12 sequential provisioning steps (tenant creation, DNS/SSL, Nginx/load-balancer configuration, database migrations, plugin allocation) from a single authenticated request — reducing setup time by ~99% and preventing partially configured nodes through idempotent, fault-tolerant, self-recovering provisioning.</li>
+          <li>Containerized a legacy multi-service platform with no reproducible local environment — bringing 10+ services into a single Docker Compose stack with dependency health checks, automated migrations, and Xdebug support; reduced onboarding from days of manual setup to a single command.</li>
+          <li>Designed and implemented centralized observability — a Filebeat → Logstash → Elasticsearch pipeline with correlation IDs propagated across service boundaries — enabling end-to-end distributed tracing, centralized logging, and faster incident diagnosis.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <div class="company">Ghasedak24 (Travel Company)</div>
+            <div class="job-title">Software Engineer</div>
+          </div>
+          <div class="job-meta">2022 Nov – 2026 Feb<br><span class="loc">Tehran, Iran</span></div>
+        </div>
+        <ul>
+          <li>Designed and built a high-scale SaaS flight aggregation platform from 0 to 1 on Laravel, integrating 25+ suppliers across the full booking lifecycle (search → revalidation → book → issue → refund); architected for high availability, scalability, low latency, and fault isolation, driving significant growth in engagement and sales.</li>
+          <li>Designed and developed a scalable dynamic pricing service for B2C and B2B products, enabling configurable ticket pricing and markup strategies at the product level; architected for low latency, high availability, and horizontal scalability to support real-time pricing decisions at scale.</li>
+          <li>Architected and built a scalable multi-tenant payment gateway (Daric), integrating 8+ payment providers across the end-to-end payment lifecycle — initiation, verification, callbacks/webhooks, settlement, and refunds — implementing timeouts, retries, circuit breakers, fault isolation, and reliable webhook delivery for resilient, idempotent processing across heterogeneous provider APIs.</li>
+          <li>Architected and developed the train platform for the full train service lifecycle — search, revalidation, booking, and issuance — supporting 432K+ requests/day with traffic peaking at 3× average volume, protected by timeouts, circuit breakers, controlled retries, and failure isolation to prevent cascading failures.</li>
+          <li>Led the migration of the custom blog platform from CodeIgniter 2 to WordPress, giving SEO and content teams purpose-built tools and workflows — reducing engineering overhead and improving publishing efficiency.</li>
+          <li>Led cross-functional teams in transitioning legacy systems to modern, maintainable architectures, significantly reducing technical debt and improving long-term code quality.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <div class="company">Adam Barfi (Digital Marketing)</div>
+            <div class="job-title">Full-Stack Developer</div>
+          </div>
+          <div class="job-meta">2020 Jan – 2022 Oct<br><span class="loc">Tehran, Iran</span></div>
+        </div>
+        <ul>
+          <li>Developed and maintained full-stack web applications using Laravel, PHP, React, and WordPress, handling both backend and frontend development.</li>
+          <li>Designed and developed custom WordPress themes for multiple clients — responsive, SEO-friendly, and highly customized to branding and business requirements.</li>
+          <li>Built a multi-tenant online menu platform for coffee shops, enabling multiple businesses to independently manage menus, products, pricing, and content on a shared platform.</li>
+          <li>Built custom CMS functionality and website features to streamline content management and publishing workflows for non-technical users.</li>
+          <li>Extended the Chatify package for AndamBartar with voice messaging and voice-command functionality, enhancing real-time communication.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section">
+      <h2 class="section-title"><span class="no">03</span> Skills</h2>
+      <div class="skills">
+        <div class="skill-group">
+          <div class="skill-label">Languages</div>
+          <div class="chips"><span class="chip">PHP</span><span class="chip">C#</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Databases</div>
+          <div class="chips"><span class="chip">MySQL</span><span class="chip">Redis</span><span class="chip">PostgreSQL</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Frameworks</div>
+          <div class="chips"><span class="chip">Laravel</span><span class="chip">CodeIgniter</span><span class="chip">.NET</span><span class="chip">Symfony</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Frontend</div>
+          <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Containerization</div>
+          <div class="chips"><span class="chip">Docker</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Observability</div>
+          <div class="chips"><span class="chip">ELK Stack</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Architecture</div>
+          <div class="chips"><span class="chip">Modular</span><span class="chip">MVC</span><span class="chip">Layered</span><span class="chip">Hexagonal (Ports &amp; Adapters)</span><span class="chip">DDD</span><span class="chip">SOA</span><span class="chip">Clean Architecture</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Principles</div>
+          <div class="chips"><span class="chip">OOP</span><span class="chip">SOLID</span><span class="chip">KISS</span><span class="chip">YAGNI</span><span class="chip">PSR</span><span class="chip">SoC</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section class="section">
+      <h2 class="section-title"><span class="no">04</span> Education</h2>
+      <div class="edu">
+        <div>
+          <div class="edu-school">Qazvin Islamic Azad University</div>
+          <div class="edu-degree">Bachelor's Degree — English Translation</div>
+        </div>
+        <div class="edu-meta">2024 Oct – Present<br><span class="loc">Qazvin, Iran</span></div>
+      </div>
+    </section>
+
+    <!-- ================= LANGUAGES ================= -->
+    <section class="section">
+      <h2 class="section-title"><span class="no">05</span> Languages</h2>
+      <div class="langs">
+        <span class="lang">English</span>
+        <span class="lang">Persian</span>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <span>Iman Parvizi — Software Engineer</span>
+    <span class="f-right">hellopvz@gmail.com · github.com/realpvz</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
